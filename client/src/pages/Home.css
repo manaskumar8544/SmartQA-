@@ -1,0 +1,116 @@
+/* Home.css */
+
+/* Background with dark cool animation */
+.home-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #1e1e2f, #2d2d44, #1a1a2e, #000000);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  padding: 20px;
+}
+
+/* Card style */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Heading and text */
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00e5ff;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.subtext {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Button group */
+.button-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Glow buttons with animation */
+.btn-glow {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(120deg, #00e5ff, #7c4dff);
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-glow:hover::before {
+  left: 0;
+}
+
+/* Button colors */
+.btn-glow.blue::before {
+  background: linear-gradient(120deg, #00e5ff, #0050ff);
+}
+
+.btn-glow.green::before {
+  background: linear-gradient(120deg, #00e676, #00c853);
+}
+
+/* Fade-in + Slide-up */
+.animate-fade-in {
+  animation: fadeSlideIn 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Keyframes */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

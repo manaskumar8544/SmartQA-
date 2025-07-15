@@ -1,19 +1,23 @@
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 function Home() {
   return (
-    <div className="container text-center py-5">
-      <h2 className="mb-4">SmartQA - Get Started!</h2>
-      <p className="mb-2">
-        SmartQA is a platform that allows you to create and join rooms for collaborative question-answering sessions. 
-        You can create a room to host a session or join an existing room to participate in discussions.
-      </p>
-      <p className="mb-4">
-        If you want to participate, then click on the Join Room.
-        Ask for room code from the host of the meeting.
-      </p>
-      <Link to="/create" className="btn btn-primary mx-3">Create Room</Link>
-      <Link to="/join" className="btn btn-success mx-3">Join Room</Link>
+    <div className="home-wrapper">
+      <div className="glass-card animate-fade-in">
+        <h1 className="heading">🚀 Welcome to SmartQA</h1>
+        <p className="subtitle">
+          Host or join smart Q&A sessions in real time with collaborative features and an intelligent interface.
+        </p>
+        <p className="subtext">
+          🔐 Ask for a room code to join an ongoing session, or create your own with a click.
+        </p>
+
+        <div className="button-group">
+          <Link to="/create" className="btn-glow blue">➕ Create Room</Link>
+          <Link to="/join" className="btn-glow green">🔗 Join Room</Link>
+        </div>
+      </div>
     </div>
   );
 }
