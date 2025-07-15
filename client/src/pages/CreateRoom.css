@@ -1,0 +1,122 @@
+/* 🌄 Chandratal background */
+.create-room-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background: url('/assets/Chandratal.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ❄️ Snowflake animation */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear infinite;
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(100vh) translateX(30px);
+    opacity: 0;
+  }
+}
+
+.snowflake:nth-child(odd) {
+  width: 5px;
+  height: 5px;
+  animation-duration: 10s;
+}
+
+.snowflake:nth-child(even) {
+  width: 3px;
+  height: 3px;
+  animation-duration: 12s;
+}
+
+/* 🧊 Glassmorphism card */
+.form-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  max-width: 450px;
+  width: 100%;
+  color: #fff;
+  z-index: 2;
+  animation: slideUp 1.2s ease-out;
+}
+
+/* ✨ Gradient animated heading */
+.text-glow {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  animation: textPulse 2s infinite alternate;
+}
+
+@keyframes textPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* 🔷 Unique glass input */
+.input-glass {
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 12px;
+  padding: 15px 20px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.input-glass:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00bcd4, 0 0 20px #00bcd4;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 🚀 Glow button */
+.btn-glow-submit {
+  padding: 12px;
+  background: linear-gradient(120deg, #2196f3, #00bcd4);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-glow-submit:hover {
+  background: linear-gradient(120deg, #00bcd4, #2196f3);
+  box-shadow: 0 0 12px #00bcd4, 0 0 24px #2196f3;
+  transform: scale(1.05);
+}
+
+/* Smooth fade */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
