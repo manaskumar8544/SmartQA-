@@ -6,7 +6,7 @@ import "./CreateRoom.css";
 
 function CreateRoom() {
   const [name, setName] = useState("");
-  const [error, setError] = useState({});
+  const [error, setError] = useState({ name: null, server: null });
   const navigate = useNavigate();
 
   const validate = () => {
@@ -18,7 +18,7 @@ function CreateRoom() {
       newError.name = "Name is required";
     }
 
-    setError(newError);
+    setError({ ...error, ...newError });
     return isValid;
   };
 
@@ -34,42 +34,29 @@ function CreateRoom() {
         navigate(`/room/${roomCode}`);
       } catch (err) {
         console.error("Error creating room:", err);
-        setError({ server: "Failed to create room. Please try again later." });
+        setError({ ...error, server: "Failed to create room. Please try again later." });
       }
     }
   };
 
   return (
-    <div className="create-room-wrapper">
-      {/* ❄️ Snowfall effect */}
-      {[...Array(60)].map((_, i) => (
-        <div
-          key={i}
-          className="snowflake"
-          style={{
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 10}s`,
-          }}
-        />
-      ))}
-
-      {/* 🎯 Glassmorphism Form Card */}
+    <div className="simple-room-wrapper">
       <div className="form-card">
-        <h2 className="text-center mb-4 text-glow">🏔️ Create Room</h2>
+        <h2 className="form-title">🧠 Create Room</h2>
         <div className="mb-3">
           <input
             type="text"
             id="name"
-            placeholder="Enter your full name"
-            className={`input-glass form-control ${error.name ? "is-invalid" : ""}`}
+            autoComplete="off"
+            placeholder="Enter your name"
+            className={`form-control simple-input ${error.name ? "is-invalid" : ""}`}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           {error.name && <div className="invalid-feedback">{error.name}</div>}
         </div>
-
-        <button className="btn-glow-submit w-100 mt-3" onClick={handleSubmit}>
-          🚀 Create Now
+        <button className="simple-btn w-100" onClick={handleSubmit}>
+          Create Now
         </button>
 
         {error.server && (
