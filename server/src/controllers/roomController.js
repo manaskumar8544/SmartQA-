@@ -1,6 +1,7 @@
 const { request } = require("express");
 const Rooms = require("../models/Rooms");
 const Questions = require("../models/Questions");
+const { callGemini } = require("../services/geminiService");
 
 const roomController = {
     createRoom: async (request, response) => {
@@ -66,13 +67,31 @@ const roomController = {
             const questions = await Questions
                 .find({ roomCode: code })
                 .sort({ createdAt: -1 });
-            
+
             response.json(questions);
         } catch (error) {
             console.log(error);
             response.status(500).json({ message: 'Internal server error' });
         }
     },
+
+    summarizeQuestions: async (request, response) => {
+    try {
+        const { code } = request.params; // ✅ Correct destructuring
+
+        const questions = await Questions.find({ roomCode: code });
+        if (questions.length === 0) {
+            return response.json([]);
+        }
+
+        const summary = await callGemini(questions); // ✅ Make sure this returns an array of strings
+        return response.json(summary);
+    } catch (error) {
+        console.log("Summary Error:", error);
+        return response.status(500).json({ message: 'Internal server error' });
+    }
+}
+
 };
 
 module.exports = roomController;

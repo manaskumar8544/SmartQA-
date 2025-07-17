@@ -1,0 +1,100 @@
+/* QuestionForm.css - Stylish Ask Section ✨ */
+
+/* === Container === */
+.question-container {
+  padding: 2rem;
+  background-color: #fff8e1;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Heading === */
+.question-container h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6f00;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 2px rgba(255, 111, 0, 0.2);
+}
+
+/* === Textarea === */
+.question-container textarea {
+  width: 100%;
+  height: 50vh;
+  resize: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: #fffbe7;
+  border: 2px solid #ffca28;
+  border-radius: 15px;
+  color: #4e342e;
+  box-shadow: 0 4px 12px rgba(255, 202, 40, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+
+.question-container textarea::placeholder {
+  color: #a1887f;
+}
+
+.question-container textarea:focus {
+  outline: none;
+  border-color: #ffb300;
+  background-color: #fff9c4;
+}
+
+/* === Button === */
+.question-container button {
+  width: 100%;
+  margin-top: 1rem;
+  background: linear-gradient(to right, #ffca28, #ff8f00);
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.question-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 167, 38, 0.5);
+}
+
+/* === Error Message === */
+.question-container .alert-danger {
+  margin-top: 1rem;
+  background-color: #ffecb3;
+  color: #e65100;
+  border: 1px solid #ffd180;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-weight: 500;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .question-container textarea {
+    height: 40vh;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .question-container button {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { serverEndpoint } from "../config/appConfig";
 
+import './Question.css';
+
 function Question({ roomCode }) {
   const [question, setQuestion] = useState("");
   const [errors, setErrors] = useState({});
