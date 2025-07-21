@@ -13,6 +13,7 @@ const callGemini = async (question) => {
     Respond with only the summarized list, one per line.
 `;
 
+    const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
     const response = await axios.post(url, 
         {
